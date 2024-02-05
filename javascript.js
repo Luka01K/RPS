@@ -34,30 +34,44 @@ function playRound(playerSelection, computerSelection) {
 
 let playerPoints = 0;
 let computerPoints = 0;
+let drawPoints = 0;
+let numberOfRounds = 0;
 
 function playGame() {
 
-    let playerSelectionMessy = prompt("Whats you'r weapon of choice?");
-    let playerSelection = playerSelectionMessy.toLowerCase().charAt(0).toUpperCase() + playerSelectionMessy.slice(1).toLowerCase();
-    
-    let computerSelection = getComputerChoice();
-    console.log("Computer chose:", computerSelection);
-    console.log("You chose:", playerSelection);
-    console.log(playRound(playerSelection, computerSelection));
+    while (numberOfRounds < 5) {
+        
+        let playerSelectionMessy = prompt("Whats you'r weapon of choice?");
+        let playerSelection = playerSelectionMessy.toLowerCase().charAt(0).toUpperCase() + playerSelectionMessy.slice(1).toLowerCase();
+        
+        let computerSelection = getComputerChoice();
+        console.log("Computer chose:", computerSelection);
+        console.log("You chose:", playerSelection);
+        console.log(playRound(playerSelection, computerSelection));
 
-    if (playRound(playerSelection, computerSelection) === "You win! You also get a point.") {
-        playerPoints++;
-        console.log("Your points:", playerPoints);
-        console.log("Computer points:", computerPoints);
-    } else if (playRound(playerSelection, computerSelection) === "You loose! Computer gets a point, you get none.") {
-        computerPoints++;
-        console.log("Your points:", playerPoints);
-        console.log("Computer points:", computerPoints);
-    } else {
-        console.log("Your points:", playerPoints);
-        console.log("Computer points:", computerPoints);
+        if (playRound(playerSelection, computerSelection) === "You win! You also get a point.") {
+            playerPoints++;
+            numberOfRounds++;
+            console.log("Your points:", playerPoints);
+            console.log("Computer points:", computerPoints);
+            console.log("Games played:", numberOfRounds);
+        } else if (playRound(playerSelection, computerSelection) === "You loose! Computer gets a point, you get none.") {
+            computerPoints++;
+            numberOfRounds++;
+            console.log("Your points:", playerPoints);
+            console.log("Computer points:", computerPoints);
+            console.log("Games played:", numberOfRounds);
+        } else {
+            numberOfRounds++;
+            drawPoints++;
+            console.log("Number of draws:", drawPoints);
+            console.log("Your points:", playerPoints);
+            console.log("Computer points:", computerPoints);
+            console.log("Games played:", numberOfRounds);
+        }
     }
 
+    console.log("Final score:   " + " " + "Your points:", playerPoints + " " + "Computer points:", computerPoints + " " + "Number of draws:", drawPoints);
 }
 
 playGame()
