@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+button {
+    width: 150px;
+    height: 80px;
+    background-color: cadetblue;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.text {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 1000px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+.choices {
+    padding: 5px;
+    display: flex;
+    gap: 20px;
+}
+
+.rounds {
+    padding-left: 0px;
+    padding-top: 5px;
+}
